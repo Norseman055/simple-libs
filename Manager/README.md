@@ -14,26 +14,42 @@ The "PCSTree" library in the Manager folder must be added to your solution. Incl
 
 // Foo.h
 
-class Foo : Manager<Bar> {
+class Foo : Manager \<Bar\> 
+
+{
+
 	// Foo is a manager of Bar objects, use GetInstance() to get reference to Foo
+
 }
 
 // BarLink.h
 
-class BarLink : NodeLink<Bar> {
+class BarLink : NodeLink \<Bar\> 
+
+{
+
 	// BarLink holds a Bar* and can be retrieved with getData()
+
 }
 
 // Bar.h
 
-class Bar {
+class Bar 
+
+{
+
 	int data;
+
 }
 
 // Example.cpp
 
 Foo* foo = GetInstance();	// foo is now the singleton manager of Bar objects
+
 Bar* bar = new Bar;		// make a Bar object
+
 BarLink* barLink = new BarLink(bar);	// attach a bar object to the BarLink
+
 foo->Add(barLink);		// foo now has a single Bar object, wrapped in a BarLink
+
 foo->Remove(barLink);	// foo has now removed the BarLink object the list of managed objects and deallocated both BarLink and the wrapped-up Bar object.
