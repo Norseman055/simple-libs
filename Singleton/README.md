@@ -11,12 +11,20 @@ Include "Singleton.h" in the file that would use it, then inherit your class fro
 
 // #include "Singleton.h"
 
-class Foo : Singleton<Foo> {
+class Foo : Singleton \<Foo\>
+
+{
+
 public:
+
 	// use Foo as normal.
+	
 private:
+
 	// Make Foo's constructor private to ensure it can only be instantiated by GetInstance()
+	
 	Foo();
 
 	// When you're done with this instance of Foo, call DestroyInstance() to clean up the memory
+	
 }
