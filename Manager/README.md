@@ -3,7 +3,12 @@ Manager.h is a generic class any C++ class can inherit from to specify that the 
 
 # Requirements 
 - PCSTree
+ 
 The "PCSTree" library in the Manager folder must be added to your solution. Include "PCSTree.h" and "PCSNode.h" in your solution, and link to the PCSTree library. (PCSTreeDebug.lib is made to work with Edit and Continue mode in Visual Studio, whereas PCSTreeRelease.lib has been optimized to run as quickly as possible)
+
+- Singleton
+ 
+To access the class instance created by the Manager that utilizes "Singleton.h", you will need to cast the return value of GetInstance() to your class type. See the example below for use of this.
 
 # Usage
 1. Include "Manager.h" and "NodeLink.h" in the file that would use it, then inherit your class from the Manager, specifying the class you wish to have stored in the list as a template parameter. 
@@ -19,6 +24,8 @@ class Foo : Manager \<Bar\>
 {
 
 	// Foo is a manager of Bar objects, use GetInstance() to get reference to Foo
+	// If you are using the Manager which includes "Singleton.h", you will need to cast the result of GetInstance() to type Foo
+	// e.g. static_cast<Foo*>(GetInstance());
 
 }
 
