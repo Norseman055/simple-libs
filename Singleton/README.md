@@ -5,15 +5,19 @@ Singleton.h is a generic class any C++ class can inherit from to specify that th
 None.
 
 # Usage
-Include "Singleton.h" in the file that would use it, then inherit your class from the Singleton, specifying the class in question as a template parameter. 
+Include "Singleton.h" in the file that would use it, then inherit your class from the Singleton, specifying the class in question as a template parameter. Include the singleton as a friend in the inheriting class so it can use the private constructor.
 
 # Example
 
-// #include "Singleton.h"
+// Foo.h
+
+\#include "Singleton.h"
 
 class Foo : Singleton \<Foo\>
 
 {
+
+	friend class Singleton<Foo>;
 
 public:
 
